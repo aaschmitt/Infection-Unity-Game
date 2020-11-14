@@ -3,9 +3,9 @@
 public class CameraFollow : MonoBehaviour
 {
     /* Serialized Private Fields */
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform target = null;
     [SerializeField] private float smoothTime = 0.3F;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private Vector3 offset = Vector3.zero;
     
     /* Private Fields */
     private Vector3 _velocity = Vector3.zero;
