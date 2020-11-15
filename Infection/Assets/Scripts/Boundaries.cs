@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]                            // Boundaries.cs requires SpriteRenderer to calculate width and height of object being clamped
 public class Boundaries : MonoBehaviour
 {
     /* Serialized Private Fields */
-    [SerializeField] private Vector2 levelBounds = Vector2.zero;
-    
+    [SerializeField] private Vector2 bounds = Vector2.zero;          // Holds the area which the object will be bound to (drawn in inspector)
+
     /* Private Fields */
     private float _objectWidth = 0f;
     private float _objectHeight = 0f;
-    
+
     void Start()
     {
         InitializeVariables();
@@ -19,8 +20,8 @@ public class Boundaries : MonoBehaviour
     void LateUpdate()
     {
         Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, levelBounds.x * -1 + _objectWidth, levelBounds.x - _objectWidth);
-        viewPos.y = Mathf.Clamp(viewPos.y, levelBounds.y * -1 + _objectHeight, levelBounds.y - _objectHeight);
+        viewPos.x = Mathf.Clamp(viewPos.x, bounds.x * -1 + _objectWidth, bounds.y - _objectWidth);        // Clamp object to bounds
+        viewPos.y = Mathf.Clamp(viewPos.y, bounds.y * -1 + _objectHeight, bounds.y - _objectHeight);
         transform.position = viewPos;
     }
 
@@ -35,6 +36,6 @@ public class Boundaries : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, levelBounds * 2);
+        Gizmos.DrawWireCube(transform.position, bounds * 2);
     }
 }
