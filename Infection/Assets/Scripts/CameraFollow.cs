@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Analytics;
 
-[RequireComponent(typeof(Camera))]                                        // CameraFollow requires a Camera component attached
+[RequireComponent(typeof(Camera))]                                         // CameraFollow requires a Camera component attached
 public class CameraFollow : MonoBehaviour
 {
     /* Serialized Private Fields */
@@ -21,9 +24,10 @@ public class CameraFollow : MonoBehaviour
     
     void LateUpdate()
     {
-        Vector3 targetPosition = target.TransformPoint(offset);                                                                         // Define a target position offset to the target being fallowed
+        Vector3 targetPosition = target.TransformPoint(offset);                                                                          // Define a target position offset to the target being fallowed
+
         var desiredPos = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);                // Smoothly move the camera towards target position
-        
+    
         desiredPos.x = Mathf.Clamp(desiredPos.x, -1 * bounds.x + _screenDimensions.x, bounds.x - _screenDimensions.x);    // Clamp screen position so that it does not leave bounds
         desiredPos.y = Mathf.Clamp(desiredPos.y, -1 * bounds.y + _screenDimensions.y, bounds.y - _screenDimensions.y);
 
