@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5.0f;                        // Regular movement speed of player
     [SerializeField] private float dashSpeedMultiplier = 0f;            // Speed of dash (multiplied by speed)
     [SerializeField] private float dashTime = 0f;                       // How long the dash will last in seconds
+    [SerializeField] private float diagonalDashMultiplier = 0f;         // Multiply diagonal dashes by this value (less than 1)
     
     /* Private Fields */
     private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
@@ -123,16 +124,16 @@ public class PlayerController : MonoBehaviour
                 direction = Vector2.down;
                 break;
             case Direction.NorthEast:
-                direction = Vector2.up + Vector2.right;
+                direction = (Vector2.up + Vector2.right) * diagonalDashMultiplier;
                 break;
             case Direction.NorthWest:
-                direction = Vector2.up + Vector2.left;
+                direction = (Vector2.up + Vector2.left) * diagonalDashMultiplier;;
                 break;
             case Direction.SouthEast:
-                direction = Vector2.down + Vector2.right;
+                direction = (Vector2.down + Vector2.right) * diagonalDashMultiplier;;
                 break;
             case Direction.SouthWest:
-                direction = Vector2.down + Vector2.left;
+                direction = (Vector2.down + Vector2.left) * diagonalDashMultiplier;;
                 break;
             default:
                 direction = Vector2.right;
