@@ -7,7 +7,7 @@ using UnityEngine;
  * Class to define an Enemy
  * All enemies have two states -- idle and aggravated
  */
-public class Enemy : Entity
+public abstract class Enemy : Entity
 {
     /* Serialized Private Fields */
     [SerializeField] private float speed = 3f;                // Speed of enemy when approaching target (Player)
@@ -32,7 +32,7 @@ public class Enemy : Entity
     /* Defines behavior for when enemy is aggravated */
     private void AggravatedUpdate()
     {
-        ApproachTarget();
+        ApproachTarget();                                // Approach player when aggravated
     }
 
     /* Defines behavior for when enemy is idle */
@@ -44,10 +44,13 @@ public class Enemy : Entity
     /* Used to detect if player has entered range of sight */
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (_isAggravated) return;                        // Enemy is already aggravated, do nothing
+        
         if (other.gameObject.CompareTag("Player"))        // Player has entered enemy's range of sight
         {
             _isAggravated = true;                         // Switch to aggravated state
             _target = other.gameObject;                   // Set player as target
+            StartCoroutine(Attacking(_target));    // Enemy starts attacking
         }
     }
     
@@ -58,4 +61,15 @@ public class Enemy : Entity
         direction = -direction.normalized;                                          // Normalize resultant vector to unit vector
         transform.position += Time.deltaTime * speed * direction;                   // Move in the direction of the target every frame
     }
+    
+    /* Stop any coroutines on destruction */
+    void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
+    /* Abstract methods to define enemy's attacking behavior (different enemies will attack differently) */
+    protected abstract void Attack(GameObject target);
+    protected abstract IEnumerator Attacking(GameObject target);
+
 }
