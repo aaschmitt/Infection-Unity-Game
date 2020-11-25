@@ -23,4 +23,5 @@ public class PoliceBullet : Projectile
     {
         transform.position += Time.deltaTime * speed * _direction;         // Move projectile towards target
     }
+
 }

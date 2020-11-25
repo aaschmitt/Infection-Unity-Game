@@ -747,11 +747,11 @@ GameObject:
   m_Component:
   - component: {fileID: 920286796}
   - component: {fileID: 920286795}
-  - component: {fileID: 920286794}
   - component: {fileID: 920286798}
   - component: {fileID: 920286797}
+  - component: {fileID: 920286794}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Policeman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -766,11 +766,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 920286793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46cff622fa03a649b24feda1c6fe7d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 87d820a8dd4f91a48b9d16087998e119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
   speed: 3
+  timeBetweenAttacks: 2
+  projectile: {fileID: 7320060984383781050, guid: 99516d195df097b40aef78c1bea4d087,
+    type: 3}
 --- !u!212 &920286795
 SpriteRenderer:
   m_ObjectHideFlags: 0

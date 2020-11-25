@@ -24,6 +24,8 @@ public class CameraFollow : MonoBehaviour
     
     void LateUpdate()
     {
+        if (!target) return;                                                                                                             // If target is destroyed, do not update camera movement
+        
         Vector3 targetPosition = target.TransformPoint(offset);                                                                          // Define a target position offset to the target being fallowed
 
         var desiredPos = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);                // Smoothly move the camera towards target position

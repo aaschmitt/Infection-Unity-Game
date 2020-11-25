@@ -22,10 +22,10 @@ public class Policeman : Enemy
     /* Shoot one projectile at a time */
     protected override IEnumerator Attacking(GameObject target)
     {
-        while (true)
+        while (isAggravated)
         {
             yield return new WaitForSeconds(timeBetweenAttacks);            // Wait until attacking again
-            Attack(target);
+            if (isAggravated) Attack(target);                               // Make sure enemy is still aggravated when it comes time to shoot
         }
     }
 }
