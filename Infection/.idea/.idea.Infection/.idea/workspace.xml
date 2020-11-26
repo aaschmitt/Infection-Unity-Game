@@ -26,9 +26,11 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Policeman.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Abstract/EnemyProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IKillable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,20 +53,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" />
         <option value="$PROJECT_DIR$/Assets/Approach.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ShootAt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IKillable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Entity.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/EnemyProjectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" />
       </list>
     </option>
   </component>
@@ -118,7 +122,7 @@
       <workItem from="1605659871533" duration="285000" />
       <workItem from="1606154180348" duration="14134000" />
       <workItem from="1606239951728" duration="6763000" />
-      <workItem from="1606309040766" duration="3138000" />
+      <workItem from="1606309040766" duration="7355000" />
     </task>
     <servers />
   </component>

@@ -36,6 +36,6 @@ public class Boundaries : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, bounds * 2);
+        Gizmos.DrawWireCube(Vector3.zero, bounds * 2);
     }
 }

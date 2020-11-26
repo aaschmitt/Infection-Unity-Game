@@ -13,19 +13,19 @@ public class Policeman : Enemy
     [SerializeField] private Projectile projectile = null;                    // The projectile that this policeman will shoot
 
     /* Instantiates a projectile and aims it at the target (Player) */
-    protected override void Attack(GameObject target)
+    protected override void Attack()
     { 
         Projectile proj = Instantiate(projectile, transform.position, Quaternion.identity);  // Instantiate a projectile and set its target to player
         proj.SetTarget(target);
     }
 
     /* Shoot one projectile at a time */
-    protected override IEnumerator Attacking(GameObject target)
+    protected override IEnumerator Attacking()
     {
         while (isAggravated)
         {
             yield return new WaitForSeconds(timeBetweenAttacks);            // Wait until attacking again
-            if (isAggravated) Attack(target);                               // Make sure enemy is still aggravated when it comes time to shoot
+            if (isAggravated) Attack();                                     // Make sure enemy is still aggravated when it comes time to shoot
         }
     }
 }

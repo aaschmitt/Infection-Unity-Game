@@ -9,6 +9,7 @@
         <e p="Scripts" t="Include">
           <e p="Abstract" t="Include">
             <e p="Enemy.cs" t="Include" />
+            <e p="EnemyProjectile.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
           </e>

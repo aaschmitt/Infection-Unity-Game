@@ -5,8 +5,15 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
+/* Specify required components */
+[RequireComponent(typeof(Player))]
+
 public class PlayerController : MonoBehaviour
 {
+    /* Public Properties */
+    public Player Player { get; set; }
+    public bool IsDashing { get; set; }                                     // Bool to determine whether or not player is currently dashing
+
     /* Serialized Field Private Fields */
     [SerializeField] private float speed = 5.0f;                        // Regular movement speed of player
     [SerializeField] private float dashSpeedMultiplier = 0f;            // Speed of dash (multiplied by speed)
@@ -15,7 +22,6 @@ public class PlayerController : MonoBehaviour
     
     /* Private Fields */
     private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
-    private bool _isDashing = false;                                    // Bool to determine whether or not player is currently dashing
     private bool _isMoving = false;                                     // Bool to determine whether or not player is currently moving
     private Direction _currentDirection;                                // Reference to current direction
 
@@ -45,7 +51,7 @@ public class PlayerController : MonoBehaviour
     private void HandleInput()
     {
         /* Cannot move while dashing */
-        if (_isDashing) return;
+        if (IsDashing) return;
         
         /* Move Up */
         if (Input.GetKey(KeyCode.W))
@@ -140,16 +146,17 @@ public class PlayerController : MonoBehaviour
                 break;
         }                                                                                            // Accomodate for player's current direction
         
-        _isDashing = true;                                                                                                          // Player is currently dashing
+        IsDashing = true;                                                                                                          // Player is currently dashing
         _rigidbody2D.velocity = speed * dashSpeedMultiplier * direction;
         yield return new WaitForSeconds(dashTime);                                                                                 // Dash lasts for dashTime seconds
         _rigidbody2D.velocity = Vector2.zero;                                                                                      // Finish dash (set velocity to zero)
-        _isDashing = false;                                                                                                        // Player is no longer dashing
+        IsDashing = false;                                                                                                        // Player is no longer dashing
     }
     
     /* Initialize any necessary variables */
     private void InitializeVariables()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        Player = GetComponent<Player>();
     }
 }

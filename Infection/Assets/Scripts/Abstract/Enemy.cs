@@ -14,9 +14,7 @@ public abstract class Enemy : Entity
     
     /* Protected fields */
     protected bool isAggravated = false;                      // boolean to determine what state enemy is currently in
-    
-    /* Private Fields */
-    private GameObject _target = null;                        // target to approach when aggravated. Will be set to player when player comes into range of sight
+    protected GameObject target = null;                       // target to approach when aggravated. Will be set to player when player comes into range of sight
 
     /* Calls appropriate update method based on what state enemy is in */
     void Update()
@@ -51,21 +49,21 @@ public abstract class Enemy : Entity
         if (other.gameObject.CompareTag("Player"))        // Player has entered enemy's range of sight
         {
             isAggravated = true;                         // Switch to aggravated state
-            _target = other.gameObject;                   // Set player as target
-            StartCoroutine(Attacking(_target));    // Enemy starts attacking
+            target = other.gameObject;                   // Set player as target
+            StartCoroutine(Attacking());          // Enemy starts attacking
         }
     }
     
     /* Used to calculate target's position and approach target */
     private void ApproachTarget()
     {
-        if (!_target)                                                               // If target is null, switch to idle state
+        if (!target)                                                               // If target is null, switch to idle state
         {
             SwitchToIdle();
             return;
         }        
         
-        Vector3 direction = transform.position - _target.transform.position;        // Calculate direction vector
+        Vector3 direction = transform.position - target.transform.position;        // Calculate direction vector
         direction = -direction.normalized;                                          // Normalize resultant vector to unit vector
         transform.position += Time.deltaTime * speed * direction;                   // Move in the direction of the target every frame
     }
@@ -81,11 +79,11 @@ public abstract class Enemy : Entity
     {
         if (!isAggravated) return;                                    // Enemy is already in idle state, so return
         isAggravated = false;                                         // Switch to aggravated state
-        StopCoroutine(Attacking(_target));                      // Stop Attacking coroutine
+        StopCoroutine(Attacking());                            // Stop Attacking coroutine
     }
 
     /* Abstract methods to define enemy's attacking behavior (different enemies will attack differently) */
-    protected abstract void Attack(GameObject target);
-    protected abstract IEnumerator Attacking(GameObject target);
+    protected abstract void Attack();
+    protected abstract IEnumerator Attacking();
 
 }

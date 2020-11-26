@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoliceBullet : Projectile
+public class PoliceBullet : EnemyProjectile
 {
     /* Private Fields */
     private Vector3 _direction = Vector3.zero;
     
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         InitializeVariables();
     }
     
