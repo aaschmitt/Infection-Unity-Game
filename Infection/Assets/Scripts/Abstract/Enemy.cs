@@ -11,6 +11,7 @@ public abstract class Enemy : Entity
 {
     /* Serialized Private Fields */
     [SerializeField] private float speed = 3f;                // Speed of enemy when approaching target (Player)
+    [SerializeField] private float distance = 0f;             // Once enemy is within this distance from player, stop approaching (for ranged attacks)
     
     /* Protected fields */
     protected bool isAggravated = false;                      // boolean to determine what state enemy is currently in
@@ -61,11 +62,13 @@ public abstract class Enemy : Entity
         {
             SwitchToIdle();
             return;
-        }        
+        }
         
+        if (Vector2.Distance(target.transform.position, transform.position) <= distance) return;            // Stop enemy from approaching player at specified distance
+
         Vector3 direction = transform.position - target.transform.position;        // Calculate direction vector
-        direction = -direction.normalized;                                          // Normalize resultant vector to unit vector
-        transform.position += Time.deltaTime * speed * direction;                   // Move in the direction of the target every frame
+        direction = -direction.normalized;                                         // Normalize resultant vector to unit vector
+        transform.position += Time.deltaTime * speed * direction;                  // Move in the direction of the target every frame
     }
     
     /* Stop any coroutines on destruction */
