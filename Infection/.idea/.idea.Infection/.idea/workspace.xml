@@ -22,8 +22,11 @@
     <list default="true" id="05dae75b-c1be-49b0-88a8-cc5be2f3badc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Character.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/Character.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +59,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/EnemyProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -116,6 +119,7 @@
       <workItem from="1606154180348" duration="14134000" />
       <workItem from="1606239951728" duration="6763000" />
       <workItem from="1606309040766" duration="11030000" />
+      <workItem from="1606917515807" duration="1011000" />
     </task>
     <servers />
   </component>

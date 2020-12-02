@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
     private bool _isMoving = false;                                     // Bool to determine whether or not player is currently moving
     private Direction _currentDirection;                                // Reference to current direction
+    private Animator _animator;                                         // Reference to Animator component
 
     private enum Direction                                               // enum defining possible directions (8 directions)
     {
@@ -152,11 +153,12 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D.velocity = Vector2.zero;                                                                                      // Finish dash (set velocity to zero)
         IsDashing = false;                                                                                                        // Player is no longer dashing
     }
-    
+
     /* Initialize any necessary variables */
     private void InitializeVariables()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         Player = GetComponent<Player>();
     }
 }
