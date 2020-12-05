@@ -12,21 +12,10 @@ public class PlayerController : MonoBehaviour
 {
     /* Public Properties */
     public Player Player { get; set; }
-    public bool IsDashing { get; set; }                                     // Bool to determine whether or not player is currently dashing
-
-    /* Serialized Field Private Fields */
-    [SerializeField] private float speed = 5.0f;                        // Regular movement speed of player
-    [SerializeField] private float dashSpeedMultiplier = 0f;            // Speed of dash (multiplied by speed)
-    [SerializeField] private float dashTime = 0f;                       // How long the dash will last in seconds
-    [SerializeField] private float diagonalDashMultiplier = 0f;         // Multiply diagonal dashes by this value (less than 1)
-    
-    /* Private Fields */
-    private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
-    private bool _isMoving = false;                                     // Bool to determine whether or not player is currently moving
-    private Direction _currentDirection;                                // Reference to current direction
-    private Animator _animator;                                         // Reference to Animator component
-
-    private enum Direction                                               // enum defining possible directions (8 directions)
+    public bool IsDashing { get; private set; }                         // Bool to determine whether or not player is currently dashing
+    public bool IsMoving { get; private set;}                           // Bool to determine whether or not player is currently moving
+    public Direction CurrentDirection { get; private set; }             // Reference to current direction
+    public enum Direction                                               // enum defining possible directions (8 directions)
     {
         North,
         South,
@@ -37,7 +26,16 @@ public class PlayerController : MonoBehaviour
         SouthWest,
         SouthEast
     }
+
+    /* Serialized Field Private Fields */
+    [SerializeField] private float speed = 5.0f;                        // Regular movement speed of player
+    [SerializeField] private float dashSpeedMultiplier = 0f;            // Speed of dash (multiplied by speed)
+    [SerializeField] private float dashTime = 0f;                       // How long the dash will last in seconds
+    [SerializeField] private float diagonalDashMultiplier = 0f;         // Multiply diagonal dashes by this value (less than 1)
     
+    /* Private Fields */
+    private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
+
     void Start()
     {
         InitializeVariables();
@@ -59,11 +57,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime * Vector3.up);
             
-            _currentDirection = Direction.North;
-            if (Input.GetKey(KeyCode.A)) _currentDirection = Direction.NorthWest;
-            if (Input.GetKey(KeyCode.D)) _currentDirection = Direction.NorthEast;
+            CurrentDirection = Direction.North;
+            if (Input.GetKey(KeyCode.A)) CurrentDirection = Direction.NorthWest;
+            if (Input.GetKey(KeyCode.D)) CurrentDirection = Direction.NorthEast;
 
-            _isMoving = true;
+            IsMoving = true;
         }
         
         /* Move Down */
@@ -71,11 +69,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime * Vector3.down);
 
-            _currentDirection = Direction.South;
-            if (Input.GetKey(KeyCode.A)) _currentDirection = Direction.SouthWest;
-            if (Input.GetKey(KeyCode.D)) _currentDirection = Direction.SouthEast;
+            CurrentDirection = Direction.South;
+            if (Input.GetKey(KeyCode.A)) CurrentDirection = Direction.SouthWest;
+            if (Input.GetKey(KeyCode.D)) CurrentDirection = Direction.SouthEast;
             
-            _isMoving = true;
+            IsMoving = true;
         }
         
         /* Move Left */
@@ -83,11 +81,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime * Vector3.left);
             
-            _currentDirection = Direction.West;
-            if (Input.GetKey(KeyCode.W)) _currentDirection = Direction.NorthWest;
-            if (Input.GetKey(KeyCode.S)) _currentDirection = Direction.SouthWest;
+            CurrentDirection = Direction.West;
+            if (Input.GetKey(KeyCode.W)) CurrentDirection = Direction.NorthWest;
+            if (Input.GetKey(KeyCode.S)) CurrentDirection = Direction.SouthWest;
             
-            _isMoving = true;
+            IsMoving = true;
         }
         
         /* Move Right */
@@ -95,28 +93,31 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime * Vector3.right);
             
-            _currentDirection = Direction.East;
-            if (Input.GetKey(KeyCode.W)) _currentDirection = Direction.NorthEast;
-            if (Input.GetKey(KeyCode.S)) _currentDirection = Direction.SouthEast;
+            CurrentDirection = Direction.East;
+            if (Input.GetKey(KeyCode.W)) CurrentDirection = Direction.NorthEast;
+            if (Input.GetKey(KeyCode.S)) CurrentDirection = Direction.SouthEast;
             
-            _isMoving = true;
+            IsMoving = true;
         }
         
         /* Dash */
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!_isMoving) return;
+            if (!IsMoving) return;
             StartCoroutine(Dash());
         }
 
-        _isMoving = false;
+        if (!Input.anyKey)
+        {
+            IsMoving = false;
+        }
     }
 
     /* Coroutine to set the player's velocity for a specified time */
     private IEnumerator Dash()
     {
         Vector2 direction;
-        switch (_currentDirection)
+        switch (CurrentDirection)
         {
             case Direction.North:
                 direction = Vector2.up;
@@ -158,7 +159,6 @@ public class PlayerController : MonoBehaviour
     private void InitializeVariables()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
         Player = GetComponent<Player>();
     }
 }
