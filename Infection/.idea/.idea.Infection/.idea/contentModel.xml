@@ -11,11 +11,13 @@
             <e p="Enemy.cs" t="Include" />
             <e p="EnemyProjectile.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
+            <e p="EntityAnimator.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
           </e>
           <e p="Approach.cs" t="Include" />
           <e p="Boundaries.cs" t="Include" />
           <e p="CameraFollow.cs" t="Include" />
+          <e p="EnemyAnimator.cs" t="Include" />
           <e p="Interfaces" t="Include">
             <e p="IDamageable.cs" t="Include" />
             <e p="IKillable.cs" t="Include" />

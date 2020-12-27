@@ -9,18 +9,21 @@ using UnityEngine;
  */
 public abstract class Enemy : Entity
 {
+    /* Public fields */
+    [HideInInspector] public bool IsAggravated = false;                          // boolean to determine what state enemy is currently in
+    [HideInInspector] public Vector3 Direction = Vector3.zero;                   // Current moving direction of enemy -- used primarily for animating
+
     /* Serialized Private Fields */
     [SerializeField] private float speed = 3f;                // Speed of enemy when approaching target (Player)
     [SerializeField] private float distance = 0f;             // Once enemy is within this distance from player, stop approaching (for ranged attacks)
     
     /* Protected fields */
-    protected bool isAggravated = false;                      // boolean to determine what state enemy is currently in
     protected GameObject target = null;                       // target to approach when aggravated. Will be set to player when player comes into range of sight
 
     /* Calls appropriate update method based on what state enemy is in */
     void Update()
     {
-        if (isAggravated)
+        if (IsAggravated)
         {
             AggravatedUpdate();
         }
@@ -45,11 +48,11 @@ public abstract class Enemy : Entity
     /* Used to detect if player has entered range of sight */
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isAggravated) return;                        // Enemy is already aggravated, do nothing
+        if (IsAggravated) return;                        // Enemy is already aggravated, do nothing
         
         if (other.gameObject.CompareTag("Player"))        // Player has entered enemy's range of sight
         {
-            isAggravated = true;                         // Switch to aggravated state
+            IsAggravated = true;                         // Switch to aggravated state
             target = other.gameObject;                   // Set player as target
             StartCoroutine(Attacking());          // Enemy starts attacking
         }
@@ -64,9 +67,14 @@ public abstract class Enemy : Entity
             return;
         }
         
-        if (Vector2.Distance(target.transform.position, transform.position) <= distance) return;            // Stop enemy from approaching player at specified distance
+        if (Vector2.Distance(target.transform.position, transform.position) <= distance)       // Stop enemy from approaching player at specified distance
+        {
+            Direction = Vector3.zero;
+            return;
+        }
 
         Vector3 direction = transform.position - target.transform.position;        // Calculate direction vector
+        Direction = direction;
         direction = -direction.normalized;                                         // Normalize resultant vector to unit vector
         transform.position += Time.deltaTime * speed * direction;                  // Move in the direction of the target every frame
     }
@@ -80,8 +88,8 @@ public abstract class Enemy : Entity
     /* Switches from aggravated to idle state and vice versa */
     protected void SwitchToIdle()
     {
-        if (!isAggravated) return;                                    // Enemy is already in idle state, so return
-        isAggravated = false;                                         // Switch to aggravated state
+        if (!IsAggravated) return;                                    // Enemy is already in idle state, so return
+        IsAggravated = false;                                         // Switch to aggravated state
         StopCoroutine(Attacking());                            // Stop Attacking coroutine
     }
 

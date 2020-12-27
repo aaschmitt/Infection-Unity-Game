@@ -21,17 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="05dae75b-c1be-49b0-88a8-cc5be2f3badc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Character.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Character.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player_Turn.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player_Turn.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player_idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/Player_idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player_idle.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/Player_idle.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player_run.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/Player_run.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Abstract/EnemyProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IKillable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -67,10 +67,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/EnemyProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/PlayerAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/EntityAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAnimator.cs" />
       </list>
     </option>
   </component>
@@ -131,7 +133,10 @@
       <workItem from="1607000506765" duration="3063000" />
       <workItem from="1607171829479" duration="435000" />
       <workItem from="1607182121568" duration="3834000" />
-      <workItem from="1607195136854" duration="3082000" />
+      <workItem from="1607195136854" duration="5140000" />
+      <workItem from="1608755775814" duration="821000" />
+      <workItem from="1609021578231" duration="1270000" />
+      <workItem from="1609079104704" duration="6053000" />
     </task>
     <servers />
   </component>

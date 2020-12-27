@@ -6,7 +6,7 @@ using Direction = PlayerController.Direction;
 /*
  * Class responsible for handling all animations associated with the Player
  */
-public class PlayerAnimator : MonoBehaviour
+public class PlayerAnimator : EntityAnimator
 {
     /* Serialized Private Fields */
     [SerializeField] private GameObject player = null;                // Reference to main player gameobject
@@ -14,10 +14,7 @@ public class PlayerAnimator : MonoBehaviour
     /* Private fields */
     private PlayerController _playerController = null;                // PlayerController taken from player gameobject
     private Animator _animator = null;                                // Animator component taken from this gameobject
-    
-    /* Private Constant Animator Parameters */
-    private const string IsRunning = "IsRunning";
-    private const string FacingForward = "FacingForward";
+    private bool _facingLeft = true;                                  // boolean to determine when to play "flipping" animation
 
     /* Initialize any needed fields on start */
     void Start()
@@ -54,12 +51,16 @@ public class PlayerAnimator : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            if (_facingLeft) return;
+            transform.localScale = new Vector3(1, 1, 1);                // Animate turn to left
+            _facingLeft = true;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            if (!_facingLeft) return;
+            transform.localScale = new Vector3(-1, 1, 1);               // Animate turn to right
+            _facingLeft = false;
         }
     }
 
