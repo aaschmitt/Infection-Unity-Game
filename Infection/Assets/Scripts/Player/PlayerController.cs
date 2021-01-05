@@ -32,9 +32,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashSpeedMultiplier = 0f;            // Speed of dash (multiplied by speed)
     [SerializeField] private float dashTime = 0f;                       // How long the dash will last in seconds
     [SerializeField] private float diagonalDashMultiplier = 0f;         // Multiply diagonal dashes by this value (less than 1)
+    [SerializeField] private float attackCooldown = 1f;
 
     /* Private Fields */
     private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
+    private bool _canAttack = true;
 
     void Start()
     {
@@ -108,9 +110,11 @@ public class PlayerController : MonoBehaviour
         }
         
         /* Use weapon */
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _canAttack)
         {
             Player.Weapon.StartUsing();
+            _canAttack = false;
+            StartCoroutine(AttackCooldown());
         }
         
         if (Input.GetMouseButtonUp(0))
@@ -164,6 +168,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashTime);                                                                                 // Dash lasts for dashTime seconds
         _rigidbody2D.velocity = Vector2.zero;                                                                                      // Finish dash (set velocity to zero)
         IsDashing = false;                                                                                                        // Player is no longer dashing
+    }
+    
+    /* Coroutine to prevent spam clicking */
+    private IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        _canAttack = true;
     }
 
     /* Initialize any necessary variables */

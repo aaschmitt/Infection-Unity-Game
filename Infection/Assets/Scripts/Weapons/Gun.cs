@@ -13,6 +13,7 @@ public class Gun : Weapon
     [SerializeField] private int bulletsPerFire = 1;                              // Number of bullets per call to the Fire() method (default is one)
     [SerializeField] private float timeBetweenBullets = 1f;                       // Amount of time (in seconds) between each bullet per Fire()
     [SerializeField] private float timeBetweenFires = 1f;                         // Amount of time entity must wait before firing again
+    [SerializeField] private bool isWieldedByPlayer = false;
     
     /* Private Fields */
     private bool _inUse = false;                                                  // Bool to determine whether or not the gun is being fired
@@ -61,6 +62,7 @@ public class Gun : Weapon
         {
             var bul = Instantiate(bullet, firingPoint.transform.position, Quaternion.identity);
             bul.Direction = _lookAt.Direction.normalized;
+            if (isWieldedByPlayer) bul.IsPlayerBullet = true;
             yield return new WaitForSeconds(timeBetweenBullets);
         }
     }

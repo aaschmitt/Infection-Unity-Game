@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Bullet : MonoBehaviour
 {
     /* Public properties */
     public Vector3 Direction { get; set; }                               // Direction this bullet will travel
+    public bool IsPlayerBullet { get; set; }                             // Bool to determine whether bullet should damage the player object or not
     
     /* Serialized Private Fields */
     [SerializeField] private float speed = 1f;                            // Speed this bullet will travel
     [SerializeField] private float damage = 1f;                           // Amount of damage this bullet will inflict upon collision
     [SerializeField] private float lifetime = 1f;
-    
+
     /* Start bullet's lifetime coroutine upon start */
     void Start()
     {
@@ -49,6 +51,7 @@ public class Bullet : MonoBehaviour
         Entity e = entity.GetComponent<Entity>();
         if (e != null)
         {
+            if (e.gameObject.CompareTag("Player") && IsPlayerBullet) return;
             e.Damage(damage);
             Destroy(gameObject);
         }

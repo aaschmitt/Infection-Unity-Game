@@ -482,6 +482,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1495655709, guid: 77c55944d412c28418b6798e29288aa2, type: 3}
+      propertyPath: attackCooldown
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1495655710, guid: 77c55944d412c28418b6798e29288aa2, type: 3}
       propertyPath: Weapon
       value: 
@@ -641,6 +645,11 @@ PrefabInstance:
       propertyPath: visual
       value: 
       objectReference: {fileID: 231798678}
+    - target: {fileID: 3124598175719945376, guid: 77c55944d412c28418b6798e29288aa2,
+        type: 3}
+      propertyPath: isWieldedByPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3721915291778231885, guid: 77c55944d412c28418b6798e29288aa2,
         type: 3}
       propertyPath: m_SortingOrder
