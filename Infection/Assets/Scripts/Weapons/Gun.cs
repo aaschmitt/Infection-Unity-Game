@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class Gun : Weapon
 {
     /* Serialized Private Fields */
+    [SerializeField] private GameObject visual = null;                            // the gameobject that holds the visual sprite of the gun
     [SerializeField] private Bullet bullet = null;                                // The projectile of which this weapon will fire
     [SerializeField] private Transform firingPoint = null;                        // The point on the gun where the bullet will be instantiated
     [SerializeField] private int bulletsPerFire = 1;                              // Number of bullets per call to the Fire() method (default is one)
@@ -17,11 +18,24 @@ public class Gun : Weapon
     private bool _inUse = false;                                                  // Bool to determine whether or not the gun is being fired
     private IEnumerator _firingGun = null;                                        // Reference to the coroutine that fires the gun
     private LookAt _lookAt = null;
+    private SpriteRenderer _visualSprite = null;
 
     /* Initialize variables upon start */
     private void Start()
     {
         InitializeVariables();
+    }
+
+    private void Update()
+    {
+        if (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270)
+        {
+            _visualSprite.flipY = true;
+        }
+        else
+        {
+            _visualSprite.flipY = false;
+        }
     }
 
     /* Method to fire the gun -- instantiate bullets */
@@ -70,6 +84,7 @@ public class Gun : Weapon
     {
         _firingGun = FiringGun();
         _lookAt = GetComponent<LookAt>();
+        _visualSprite = visual.GetComponent<SpriteRenderer>();
     }
     
     /* Stops coroutines when destroyed */
