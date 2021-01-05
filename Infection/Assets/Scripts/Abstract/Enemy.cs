@@ -9,6 +9,11 @@ using UnityEngine;
  */
 public abstract class Enemy : Entity
 {
+    /*
+     * [SerializeField] private float speed = 0f;
+     * 
+     */
+    
     /* Public fields */
     [HideInInspector] public bool IsAggravated = false;                          // boolean to determine what state enemy is currently in
     [HideInInspector] public Vector3 Direction = Vector3.zero;                   // Current moving direction of enemy -- used primarily for animating

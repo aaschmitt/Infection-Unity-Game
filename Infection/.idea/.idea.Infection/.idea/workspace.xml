@@ -21,16 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="05dae75b-c1be-49b0-88a8-cc5be2f3badc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Policeman.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Policeman.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Abstract/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Abstract/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +48,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Policeman.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PoliceBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/LookAt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Abstract/EnemyProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IKillable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Gun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,11 +63,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ShootAt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IKillable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Entity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boundaries.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/EnemyProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Projectile.cs" />
@@ -73,6 +75,20 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Policeman.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/BasicWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/PlayerWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/LookAtMouse.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/LookAt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Gun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Entity.cs" />
       </list>
     </option>
   </component>
@@ -136,7 +152,16 @@
       <workItem from="1607195136854" duration="5140000" />
       <workItem from="1608755775814" duration="821000" />
       <workItem from="1609021578231" duration="1270000" />
-      <workItem from="1609079104704" duration="6053000" />
+      <workItem from="1609079104704" duration="6517000" />
+      <workItem from="1609271810857" duration="5045000" />
+      <workItem from="1609422503995" duration="1236000" />
+      <workItem from="1609430512965" duration="4164000" />
+      <workItem from="1609530466052" duration="1932000" />
+      <workItem from="1609532588943" duration="239000" />
+      <workItem from="1609772893328" duration="104000" />
+      <workItem from="1609773167726" duration="56000" />
+      <workItem from="1609781558443" duration="13013000" />
+      <workItem from="1609855842417" duration="4103000" />
     </task>
     <servers />
   </component>
@@ -161,9 +186,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="158" y="0" width="1778" height="1066" key="dock-window-1" timestamp="1606234496148">
+    <state x="74" y="0" width="1728" height="1066" maximized="true" key="dock-window-1" timestamp="1609784324866">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="158" y="0" width="1778" height="1066" key="dock-window-1/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606234496148" />
+    <state x="74" y="0" width="1728" height="1066" maximized="true" key="dock-window-1/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1609784324866" />
   </component>
 </project>

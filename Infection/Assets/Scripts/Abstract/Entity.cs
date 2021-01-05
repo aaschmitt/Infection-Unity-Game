@@ -6,7 +6,7 @@ using UnityEngine;
  * An entity is defined as some destructible object in the game with a set amount of health,
  * one that can be damaged and killed (ex. Player or Enemy)
  */
-public abstract class Entity : MonoBehaviour, IKillable, IDamageable<float>
+public class Entity : MonoBehaviour, IKillable, IDamageable<float>
 {
     /* Serialized Private Fields */
     [SerializeField] private float health = 50f;

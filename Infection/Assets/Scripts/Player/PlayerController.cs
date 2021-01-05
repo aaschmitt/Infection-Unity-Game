@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashSpeedMultiplier = 0f;            // Speed of dash (multiplied by speed)
     [SerializeField] private float dashTime = 0f;                       // How long the dash will last in seconds
     [SerializeField] private float diagonalDashMultiplier = 0f;         // Multiply diagonal dashes by this value (less than 1)
-    
+
     /* Private Fields */
     private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
 
@@ -105,6 +105,17 @@ public class PlayerController : MonoBehaviour
         {
             if (!IsMoving) return;
             StartCoroutine(Dash());
+        }
+        
+        /* Use weapon */
+        if (Input.GetMouseButtonDown(0))
+        {
+            Player.Weapon.StartUsing();
+        }
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            Player.Weapon.StopUsing();
         }
 
         if (!Input.anyKey)
