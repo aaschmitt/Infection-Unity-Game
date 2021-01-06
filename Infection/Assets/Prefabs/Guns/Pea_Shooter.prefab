@@ -158,12 +158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b64e6ab4951e9a48b2f391377dbabcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visual: {fileID: 0}
+  visual: {fileID: 3333863227403082993}
   bullet: {fileID: 8111580663534436103, guid: bd2b1037fc93c9748bbc7d1cf50fe1ce, type: 3}
   firingPoint: {fileID: 4238612901420364563}
   bulletsPerFire: 3
   timeBetweenBullets: 0.2
   timeBetweenFires: 1
+  isWieldedByPlayer: 0
 --- !u!114 &2106571678
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,10 +9,8 @@
         <e p="Scripts" t="Include">
           <e p="Abstract" t="Include">
             <e p="Enemy.cs" t="Include" />
-            <e p="EnemyProjectile.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
             <e p="EntityAnimator.cs" t="Include" />
-            <e p="Projectile.cs" t="Include" />
           </e>
           <e p="Approach.cs" t="Include" />
           <e p="Boundaries.cs" t="Include" />
@@ -27,8 +25,6 @@
             <e p="PlayerAnimator.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
           </e>
-          <e p="PoliceBullet.cs" t="Include" />
-          <e p="Policeman.cs" t="Include" />
           <e p="Weapons" t="Include">
             <e p="Bullet.cs" t="Include" />
             <e p="Gun.cs" t="Include" />

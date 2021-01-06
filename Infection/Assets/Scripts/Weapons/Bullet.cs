@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
         Entity e = entity.GetComponent<Entity>();
         if (e != null)
         {
-            if (e.gameObject.CompareTag("Player") && IsPlayerBullet) return;
+            if ((e.gameObject.CompareTag("Player") && IsPlayerBullet) || (e.gameObject.CompareTag("Enemy") && !IsPlayerBullet)) return;
             e.Damage(damage);
             Destroy(gameObject);
         }

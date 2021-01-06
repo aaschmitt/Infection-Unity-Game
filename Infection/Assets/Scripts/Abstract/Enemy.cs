@@ -1,36 +1,25 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * Class to define an Enemy
- * All enemies have two states -- idle and aggravated
- */
-public abstract class Enemy : Entity
+public class Enemy : Entity
 {
-    /*
-     * [SerializeField] private float speed = 0f;
-     * 
-     */
-    
     /* Public fields */
-    [HideInInspector] public bool IsAggravated = false;                          // boolean to determine what state enemy is currently in
-    [HideInInspector] public Vector3 Direction = Vector3.zero;                   // Current moving direction of enemy -- used primarily for animating
-
-    /* Serialized Private Fields */
-    [SerializeField] private float speed = 3f;                // Speed of enemy when approaching target (Player)
-    [SerializeField] private float distance = 0f;             // Once enemy is within this distance from player, stop approaching (for ranged attacks)
+    [HideInInspector] public bool IsAggravated = true;            // boolean to determine what state enemy is currently in
+    [HideInInspector] public Vector3 Direction = Vector3.zero;    // Current moving direction of enemy -- used primarily for animating
     
-    /* Protected fields */
-    protected GameObject target = null;                       // target to approach when aggravated. Will be set to player when player comes into range of sight
+    /* Serialized Private Fields */
+    [SerializeField] private float speed = 0f;            // Speed of enemy
+    [SerializeField] private Weapon weapon = null;        // Weapon this enemy is wielding
+    [SerializeField] private GameObject target = null;    // Target this enemy will approach and attack
+    [SerializeField] private float distance = 0f;         // Once enemy is within this distance from target, stop approaching (for ranged attacks)
 
-    /* Calls appropriate update method based on what state enemy is in */
-    void Update()
+    void Update()        // Update method handles switching of states
     {
         if (IsAggravated)
         {
             AggravatedUpdate();
+            weapon.StartUsing();
         }
         else
         {
@@ -38,32 +27,24 @@ public abstract class Enemy : Entity
         }
     }
 
-    /* Defines behavior for when enemy is aggravated */
     private void AggravatedUpdate()
     {
-        ApproachTarget();                                // Approach player when aggravated
+        ApproachTarget();
     }
 
-    /* Defines behavior for when enemy is idle */
     private void IdleUpdate()
     {
         
     }
-    
-    /* Used to detect if player has entered range of sight */
-    private void OnTriggerEnter2D(Collider2D other)
+
+    private void SwitchToIdle()
     {
-        if (IsAggravated) return;                        // Enemy is already aggravated, do nothing
-        
-        if (other.gameObject.CompareTag("Player"))        // Player has entered enemy's range of sight
-        {
-            IsAggravated = true;                         // Switch to aggravated state
-            target = other.gameObject;                   // Set player as target
-            StartCoroutine(Attacking());          // Enemy starts attacking
-        }
+        if (!IsAggravated) return;
+        IsAggravated = false;
+
+        weapon.StopUsing();
     }
-    
-    /* Used to calculate target's position and approach target */
+
     private void ApproachTarget()
     {
         if (!target)                                                               // If target is null, switch to idle state
@@ -83,23 +64,4 @@ public abstract class Enemy : Entity
         direction = -direction.normalized;                                         // Normalize resultant vector to unit vector
         transform.position += Time.deltaTime * speed * direction;                  // Move in the direction of the target every frame
     }
-    
-    /* Stop any coroutines on destruction */
-    void OnDestroy()
-    {
-        StopAllCoroutines();
-    }
-    
-    /* Switches from aggravated to idle state and vice versa */
-    protected void SwitchToIdle()
-    {
-        if (!IsAggravated) return;                                    // Enemy is already in idle state, so return
-        IsAggravated = false;                                         // Switch to aggravated state
-        StopCoroutine(Attacking());                            // Stop Attacking coroutine
-    }
-
-    /* Abstract methods to define enemy's attacking behavior (different enemies will attack differently) */
-    protected abstract void Attack();
-    protected abstract IEnumerator Attacking();
-
 }

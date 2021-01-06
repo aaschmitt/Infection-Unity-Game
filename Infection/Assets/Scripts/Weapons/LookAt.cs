@@ -30,7 +30,7 @@ public class LookAt : MonoBehaviour
                 break;
             
             case ObjectToLookAt.GameObject:
-                Direction = target.transform.position;
+                Direction = target.transform.position - transform.position;
                 break;
             
             default:
