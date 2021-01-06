@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &550202829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550202830}
+  m_Layer: 8
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &550202830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550202829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3, y: -2.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6177037763979005496}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &431298987592799491
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c99fa03a40a6b245915f18ef7d4cd56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6177037763979005502}
+  enemy: {fileID: 471151339}
 --- !u!1 &5178419506993395424
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,11 +683,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6177037763979005496}
   - component: {fileID: 6177037763979005498}
-  - component: {fileID: 6177037763979005497}
-  - component: {fileID: 6177037763979005502}
+  - component: {fileID: 471151340}
+  - component: {fileID: 471151339}
   m_Layer: 8
-  m_Name: Policeman
-  m_TagString: Untagged
+  m_Name: Warthog
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,6 +704,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 5270184786315311698}
+  - {fileID: 550202830}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -698,8 +729,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &6177037763979005497
-CircleCollider2D:
+--- !u!61 &471151340
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -708,13 +739,23 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0848726, y: -0.6471486}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 6
---- !u!114 &6177037763979005502
+  m_Size: {x: 3.2491019, y: 5.901349}
+  m_EdgeRadius: 0
+--- !u!114 &471151339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -723,14 +764,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6177037763979005501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d820a8dd4f91a48b9d16087998e119, type: 3}
+  m_Script: {fileID: 11500000, guid: d2823553bc2179f4f9ec3b266b1a2c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  IsAggravated: 0
+  IsAggravated: 1
   Direction: {x: 0, y: 0, z: 0}
-  speed: 3
-  distance: 3
-  timeBetweenAttacks: 2
-  projectile: {fileID: 7320060984383781050, guid: 99516d195df097b40aef78c1bea4d087,
-    type: 3}
+  speed: 2
+  weapon: {fileID: 550202829}
+  target: {fileID: 0}
+  distance: 2

@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     /* Private Fields */
     private Rigidbody2D _rigidbody2D = null;                            // Reference to RigidBody2D component
     private bool _canAttack = true;
+    private Weapon _weapon = null;
 
     void Start()
     {
@@ -112,14 +113,14 @@ public class PlayerController : MonoBehaviour
         /* Use weapon */
         if (Input.GetMouseButtonDown(0) && _canAttack)
         {
-            Player.Weapon.StartUsing();
+            if (_weapon) _weapon.StartUsing();
             _canAttack = false;
             StartCoroutine(AttackCooldown());
         }
         
         if (Input.GetMouseButtonUp(0))
         {
-            Player.Weapon.StopUsing();
+            if (_weapon) _weapon.StopUsing();
         }
 
         if (!Input.anyKey)
@@ -182,5 +183,6 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         Player = GetComponent<Player>();
+        _weapon = Player.Weapon.GetComponentInChildren<Weapon>();
     }
 }

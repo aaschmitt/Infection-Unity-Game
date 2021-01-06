@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public Weapon Weapon = null;
+    public GameObject Weapon = null;
 }
