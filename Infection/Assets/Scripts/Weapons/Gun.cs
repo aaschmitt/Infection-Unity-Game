@@ -14,6 +14,7 @@ public class Gun : Weapon
     [SerializeField] private float timeBetweenBullets = 1f;                       // Amount of time (in seconds) between each bullet per Fire()
     [SerializeField] private float timeBetweenFires = 1f;                         // Amount of time entity must wait before firing again
     [SerializeField] private bool isWieldedByPlayer = false;
+    [SerializeField] private float enemyFiringMultiplier = 2f;                    // Multiplier of timeBetweenFires for enemies
     
     /* Private Fields */
     private bool _inUse = false;                                                  // Bool to determine whether or not the gun is being fired
@@ -50,8 +51,16 @@ public class Gun : Weapon
     {
         while (true)
         {
-            Fire();
-            yield return new WaitForSeconds(timeBetweenFires);   
+            if (isWieldedByPlayer)
+            {
+                Fire();
+                yield return new WaitForSeconds(timeBetweenFires); 
+            }
+            else
+            {
+                yield return new WaitForSeconds(timeBetweenFires);
+                Fire();   
+            }
         }
     }
 
@@ -87,6 +96,11 @@ public class Gun : Weapon
         _firingGun = FiringGun();
         _lookAt = GetComponent<LookAt>();
         _visualSprite = visual.GetComponent<SpriteRenderer>();
+
+        if (!isWieldedByPlayer)                                    // if gun is wielded by an enemy, multiply the time between fires (slows down enemy firerate)
+        {
+            timeBetweenFires *= enemyFiringMultiplier;
+        }
     }
     
     /* Stops coroutines when destroyed */

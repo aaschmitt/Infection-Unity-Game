@@ -11,18 +11,29 @@ public class LookAt : MonoBehaviour
     
     /* Serialized Private fields */
     [SerializeField] private ObjectToLookAt lookAt = ObjectToLookAt.GameObject;       // Enum to specify what the object will look at
-    [SerializeField] private GameObject target = null;                                // Target only needs to be set if not looking at mouse
+    [SerializeField] private GameObject target = null;                                // Target only needs to be set if not looking at mouse (defaults to player)
     
     /* Determines what this object will look at */
     private enum ObjectToLookAt
     {
         Mouse,
-        GameObject
+        GameObject,
+        None
+    }
+
+    private void Start()
+    {
+        InitializeVariables();
     }
 
     /* Depending on what the target is, orient object to "look at" that target -- Defaults to orient left */
     void Update()
     {
+        if (!target)
+        {
+            lookAt = ObjectToLookAt.None;
+        }
+        
         switch (lookAt)
         {
             case ObjectToLookAt.Mouse:
@@ -32,7 +43,7 @@ public class LookAt : MonoBehaviour
             case ObjectToLookAt.GameObject:
                 Direction = target.transform.position - transform.position;
                 break;
-            
+
             default:
                 Direction = Vector3.left;
                 break;
@@ -40,5 +51,13 @@ public class LookAt : MonoBehaviour
         
         var angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private void InitializeVariables()
+    {
+        if (!target)
+        {
+            target = FindObjectOfType<Player>().gameObject;
+        }
     }
 }

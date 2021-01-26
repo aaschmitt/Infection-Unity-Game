@@ -55,6 +55,13 @@ public class PlayerController : MonoBehaviour
         /* Cannot move while dashing */
         if (IsDashing) return;
         
+        /* IsMoving bool for animation purposes (false if no movement buttons are pushed) */
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) &&
+            !Input.GetKey(KeyCode.D))
+        {
+            IsMoving = false;
+        }
+        
         /* Move Up */
         if (Input.GetKey(KeyCode.W))
         {
@@ -95,14 +102,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(speed * Time.deltaTime * Vector3.right);
-            
+
             CurrentDirection = Direction.East;
             if (Input.GetKey(KeyCode.W)) CurrentDirection = Direction.NorthEast;
             if (Input.GetKey(KeyCode.S)) CurrentDirection = Direction.SouthEast;
-            
+
             IsMoving = true;
         }
-        
+
         /* Dash */
         if (Input.GetKeyDown(KeyCode.Space))
         {

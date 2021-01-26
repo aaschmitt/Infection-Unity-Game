@@ -16,7 +16,7 @@ public class Enemy : Entity
     
     /* Private fields */
     private Weapon _weapon = null;                        // Reference to the specific weapon found under the Weapon gameobject. Null if none found
-
+    
     private void Start()
     {
         InitializeVariables();
@@ -27,7 +27,6 @@ public class Enemy : Entity
         if (IsAggravated)
         {
             AggravatedUpdate();
-            if (_weapon) _weapon.StartUsing();
         }
         else
         {
@@ -37,6 +36,11 @@ public class Enemy : Entity
 
     private void AggravatedUpdate()
     {
+        if (_weapon)
+        {
+            _weapon.StartUsing();
+        }
+        
         ApproachTarget();
     }
 
@@ -51,7 +55,10 @@ public class Enemy : Entity
         if (!IsAggravated) return;
         IsAggravated = false;
 
-        if (_weapon) _weapon.StopUsing();
+        if (_weapon)
+        {
+            _weapon.StopUsing();
+        }
     }
 
     private void ApproachTarget()
@@ -72,6 +79,12 @@ public class Enemy : Entity
         Direction = direction;
         direction = -direction.normalized;                                         // Normalize resultant vector to unit vector
         transform.position += Time.deltaTime * speed * direction;                  // Move in the direction of the target every frame
+    }
+
+    public void EquipWeapon(GameObject weaponPrefab)
+    {
+        var equippedWeapon = Instantiate(weaponPrefab, weapon.transform.position, Quaternion.identity);
+        equippedWeapon.transform.parent = weapon.transform;
     }
 
     private void InitializeVariables()

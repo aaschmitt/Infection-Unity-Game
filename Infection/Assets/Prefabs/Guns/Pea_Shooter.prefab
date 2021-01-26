@@ -177,5 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5aab257cea366409ec943f1e09730d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: 0
+  lookAt: 1
   target: {fileID: 0}
