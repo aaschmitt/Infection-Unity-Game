@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4238612901420364564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.959, y: -0.193, z: 0}
+  m_LocalPosition: {x: 1.231, y: -0.026, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4238612902190822895}
@@ -166,6 +166,8 @@ MonoBehaviour:
   timeBetweenFires: 0.5
   isWieldedByPlayer: 0
   enemyFiringMultiplier: 2
+  shootParticleSystem: {fileID: 2736807847589559060, guid: 4f134fc2c50ea194cb8688a513b05a51,
+    type: 3}
 --- !u!114 &2106571678
 MonoBehaviour:
   m_ObjectHideFlags: 0

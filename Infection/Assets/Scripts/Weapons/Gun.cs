@@ -15,7 +15,8 @@ public class Gun : Weapon
     [SerializeField] private float timeBetweenFires = 1f;                         // Amount of time entity must wait before firing again
     [SerializeField] private bool isWieldedByPlayer = false;
     [SerializeField] private float enemyFiringMultiplier = 2f;                    // Multiplier of timeBetweenFires for enemies
-    
+    [SerializeField] private GameObject shootParticleSystem = null;
+
     /* Private Fields */
     private bool _inUse = false;                                                  // Bool to determine whether or not the gun is being fired
     private IEnumerator _firingGun = null;                                        // Reference to the coroutine that fires the gun
@@ -70,6 +71,14 @@ public class Gun : Weapon
         for (int i = 0; i < bulletsPerFire; i++)
         {
             var bul = Instantiate(bullet, firingPoint.transform.position, Quaternion.identity);
+            if (shootParticleSystem)
+            {
+                Instantiate(shootParticleSystem, firingPoint.position, Quaternion.identity);
+            }
+            if (!isWieldedByPlayer)
+            {
+                ColorBullet(bul, Color.red);
+            }
             bul.Direction = _lookAt.Direction.normalized;
             if (isWieldedByPlayer) bul.IsPlayerBullet = true;
             yield return new WaitForSeconds(timeBetweenBullets);
@@ -101,6 +110,12 @@ public class Gun : Weapon
         {
             timeBetweenFires *= enemyFiringMultiplier;
         }
+    }
+
+    private void ColorBullet(Bullet bul, Color newColor)
+    {
+        var bulletSprite = bul.GetVisual().GetComponent<SpriteRenderer>();
+        bulletSprite.color = newColor;
     }
     
     /* Stops coroutines when destroyed */

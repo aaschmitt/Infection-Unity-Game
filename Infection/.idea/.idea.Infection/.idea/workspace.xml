@@ -20,8 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05dae75b-c1be-49b0-88a8-cc5be2f3badc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Infection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/MachineGun_Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/MachineGun_Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Pea_Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Pea_Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/Machine Gun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Machine Gun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/Pea_Shooter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Pea_Shooter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Miscellaneous/Crate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Miscellaneous/Crate.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Gun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +44,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/LookAt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IKillable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Gun.cs" root0="FORCE_HIGHLIGHTING" />
@@ -67,15 +78,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Entity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Villain.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Abstract/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/LookAt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Enemy/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Gun.cs" />
         <option value="$PROJECT_DIR$/Assets/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Gun.cs" />
       </list>
     </option>
   </component>
@@ -155,6 +166,10 @@
       <workItem from="1609953739738" duration="7281000" />
       <workItem from="1611505343311" duration="9786000" />
       <workItem from="1611684749383" duration="5786000" />
+      <workItem from="1612028734208" duration="1088000" />
+      <workItem from="1612046530641" duration="2219000" />
+      <workItem from="1612107290552" duration="1999000" />
+      <workItem from="1612114716116" duration="84000" />
     </task>
     <servers />
   </component>

@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 1f;                            // Speed this bullet will travel
     [SerializeField] private float damage = 1f;                           // Amount of damage this bullet will inflict upon collision
     [SerializeField] private float lifetime = 1f;
+    [SerializeField] private GameObject visual = null;
+    [SerializeField] private GameObject hitParticleSystem = null;
 
     /* Start bullet's lifetime coroutine upon start */
     void Start()
@@ -24,6 +26,11 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         MoveBullet();
+    }
+
+    public GameObject GetVisual()
+    {
+        return visual;
     }
     
     /* Coroutine to destroy projectile gameobject */
@@ -53,6 +60,10 @@ public class Bullet : MonoBehaviour
         {
             if ((e.gameObject.CompareTag("Player") && IsPlayerBullet) || (e.gameObject.CompareTag("Enemy") && !IsPlayerBullet)) return;
             e.Damage(damage);
+            if (hitParticleSystem)
+            {
+                Instantiate(hitParticleSystem, transform.position, Quaternion.identity);   
+            }
             Destroy(gameObject);
         }
     }
